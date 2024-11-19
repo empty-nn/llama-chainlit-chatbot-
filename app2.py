@@ -13,7 +13,6 @@ from llama_index.llms.openai import OpenAI
 import nest_asyncio
 from pathlib import Path
 from typing import Optional, Dict
-from llama_index.agent.openai import OpenAIAgent
 from chainlit.context import get_context
 from llama_index.core.storage.chat_store import SimpleChatStore
 from llama_index.core.memory import ChatMemoryBuffer
