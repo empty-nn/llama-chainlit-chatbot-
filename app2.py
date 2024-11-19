@@ -90,6 +90,7 @@ async def handle_user_message(message: cl.Message):
             chat_store=chat_store,
             chat_store_key= thread_id  # Using username as a key to store conversation history
         )
+        cl.user_session.set("memory", memory)
     # else:
     #     # Load the existing chat store from the specified history file
     #     history_path = Path(history_path)  # Convert to Path object if it was stored as a string
@@ -106,7 +107,7 @@ async def handle_user_message(message: cl.Message):
 
     # Persist the updated chat store to the history file
     memory.chat_store.persist(str(history_path))
-
+    
     # Send the assistant's response back to the user
     await cl.Message(content=response).send()
 
